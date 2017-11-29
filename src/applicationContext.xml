@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--配置Bean-->
+    <bean id="helloWorld" class="com.study.spring.HelloWorld">
+        <property name="name" value="Spring"/>
+    </bean>
+    <bean id="car" class="com.study.spring.Car">
+        <constructor-arg value="Audi" index="0"/>
+        <constructor-arg value="3000" type="double"/>
+    </bean>
+    <bean id="car2" class="com.study.spring.Car">
+        <constructor-arg value="Audi" type="java.lang.String"/>
+        <constructor-arg value="240" type="int"/>
+    </bean>
+</beans>

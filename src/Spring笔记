@@ -1,0 +1,17 @@
+1.配置bean
+ <bean id="helloWorld" class="com.study.spring.HelloWorld">
+        <property name="name" value="Spring"/>
+ </bean>
+
+ class:bean的全类名，通过反射在IOC容器中创建bean的实例，所以要求bean类必须有一个无参的构造函数
+ id:标识bean，必须唯一
+
+ 2.ApplicationContext代表IOC容器，有两个实现类
+ ClassPathXmlApplicationContext
+ FileSystemXmlApplicationContext
+
+ 3.Spring依赖注入的方式
+    属性注入
+    构造器注入
+    工厂方法注入(很少使用，不推荐)
+ 4.使用构造器注入可以指定参数位置和类型，以区分重载的构造器
