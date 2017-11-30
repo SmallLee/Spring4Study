@@ -14,4 +14,24 @@
         <constructor-arg value="Audi" type="java.lang.String"/>
         <constructor-arg value="240" type="int"/>
     </bean>
+    <bean id="car3" class="com.study.spring.Car">
+        <constructor-arg value="200" type="double"/>
+        <constructor-arg type="java.lang.String">
+            <value><![CDATA[上海>]]></value>
+        </constructor-arg>
+    </bean>
+    <bean id="person" class="com.study.spring.Person">
+        <property name="name" value="张三"/>
+        <property name="age" value="22"/>
+        <!--<property name="car" ref="car"/>-->
+        <property name="car">
+            <!--ref子节点方式-->
+            <!--<ref bean="car2"/>-->
+            <!--内部bean方式-->
+            <bean class="com.study.spring.Car">
+                <constructor-arg value="200"/>
+                <constructor-arg value="Audi"/>
+            </bean>
+        </property>
+    </bean>
 </beans>
