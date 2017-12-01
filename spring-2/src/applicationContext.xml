@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--配置person-->
+    <bean id="person" class="com.study.spring.Person">
+        <property name="name" value="克林"/>
+        <property name="age" value="33"/>
+        <!--使用lis节点为list类型的属性赋值-->
+        <property name="cars">
+            <list>
+                <ref bean="car"/>
+                <ref bean="car2"/>
+            </list>
+        </property>
+
+    </bean>
+    <!--配置car的bean-->
+    <bean id="car" class="com.study.spring.Car">
+        <property name="brand" value="baoma"/>
+        <property name="price" value="333"/>
+        <property name="maxspeed" value="312"/>
+    </bean>
+    <!--配置car的bean-->
+    <bean id="car2" class="com.study.spring.Car">
+        <property name="brand" value="audi"/>
+        <property name="price" value="222"/>
+        <property name="maxspeed" value="444"/>
+    </bean>
+</beans>
