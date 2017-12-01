@@ -19,3 +19,22 @@
     1.使用![CDATA[]]将字符包起来
     2.使用转义字符
     属性可以使用value属性或者value子节点配置
+
+  6.使用级联属性时，要保证JavaBean中有对应的setXxx方法
+         <bean id="person2" class="com.study.spring.Person">
+                <constructor-arg value="天猫" type="java.lang.String"/>
+                <constructor-arg value="23" type="int"/>
+                <!--<constructor-arg><null/></constructor-arg>-->
+                <constructor-arg ref="car2"/>
+                <!--为级联属性赋值-->
+                <property name="car.price" value="3333"/>
+                <property name="car.address" value="北京"/>
+            </bean>
+   使用级联属性需要先为属性赋值，才能使用级联属性，否则会抛异常
+   7.为list属性赋值
+    <property name="cars">
+               <list>
+                   <ref bean="car"/>
+                   <ref bean="car2"/>
+               </list>
+           </property>
