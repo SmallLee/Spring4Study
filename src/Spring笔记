@@ -30,11 +30,13 @@
                 <property name="car.price" value="3333"/>
                 <property name="car.address" value="北京"/>
             </bean>
-   使用级联属性需要先为属性赋值，才能使用级联属性，否则会抛异常
+   使用级联属性需要先为属性赋值，才能使用级联属性，否则会抛异常，和Struts2不同
    7.为list属性赋值
     <property name="cars">
-               <list> 
+               <list>
                    <ref bean="car"/>
                    <ref bean="car2"/>
                </list>
            </property>
+    8.为map属性赋值
+        使用map以及map的子节点entry

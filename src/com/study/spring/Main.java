@@ -20,7 +20,7 @@ public class Main {
         System.out.println(car);
         car = (Car) applicationContext.getBean("car3");
         System.out.println(car);
-        Person person = (Person) applicationContext.getBean("person");
+        Person person = (Person) applicationContext.getBean("person2");
         System.out.println(person);
     }
 }

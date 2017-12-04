@@ -27,4 +27,15 @@
         <property name="price" value="222"/>
         <property name="maxspeed" value="444"/>
     </bean>
+    <!--配置map属性-->
+    <bean id="mapBean" class="com.study.spring.Person">
+        <property name="name" value="奔驰"/>
+        <property name="age" value="33"/>
+        <property name="mapCars">
+            <map>
+                <entry key="AA" value-ref="car"/>
+                <entry key="BB" value-ref="car2"/>
+            </map>
+        </property>
+    </bean>
 </beans>

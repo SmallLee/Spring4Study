@@ -34,4 +34,14 @@
             </bean>
         </property>
     </bean>
+    <!--测试null-->
+    <bean id="person2" class="com.study.spring.Person">
+        <constructor-arg value="天猫" type="java.lang.String"/>
+        <constructor-arg value="23" type="int"/>
+        <!--<constructor-arg><null/></constructor-arg>-->
+        <constructor-arg ref="car2"/>
+        <!--为级联属性赋值，注意：属性需要先初始化后才能为级联属性赋值，否则会有异常，-->
+        <property name="car.price" value="3333"/>
+        <property name="car.address" value="北京"/>
+    </bean>
 </beans>

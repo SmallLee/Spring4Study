@@ -29,6 +29,15 @@ public class Person {
         this.car = car;
     }
 
+    public Person(String name, int age, Car car) {
+        this.name = name;
+        this.age = age;
+        this.car = car;
+    }
+
+    public Person() {
+
+    }
     @Override
     public String toString() {
         return "Person{" +

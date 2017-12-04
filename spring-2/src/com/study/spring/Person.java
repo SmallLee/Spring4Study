@@ -1,11 +1,13 @@
 package com.study.spring;
 
 import java.util.List;
+import java.util.Map;
 
 public class Person {
     private String name;
     private int age;
     private List<Car> cars;
+    private Map<String,Car> mapCars;
 
     public String getName() {
         return name;
@@ -31,10 +33,21 @@ public class Person {
         this.cars = cars;
     }
 
+    public void setMapCars(Map<String,Car> mapCars) {
+        System.out.println(mapCars);
+        this.mapCars = mapCars;
+    }
+
     public Person(String name, int age, List<Car> cars) {
         this.name = name;
         this.age = age;
         this.cars = cars;
+    }
+
+    public Person(String name, int age, Map<String,Car> mapCars) {
+        this.name = name;
+        this.age = age;
+        this.mapCars = mapCars;
     }
 
     public Person() {
@@ -45,7 +58,7 @@ public class Person {
         return "Person{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
-                ", cars=" + cars +
+                ", cars=" + cars + mapCars+
                 '}';
     }
 }

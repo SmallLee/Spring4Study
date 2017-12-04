@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class TestSpring {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        Person person = (Person) context.getBean("person");
+        Person person = (Person) context.getBean("mapBean");
         System.out.println(person);
     }
 }
