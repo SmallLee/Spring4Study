@@ -40,3 +40,26 @@
            </property>
     8.为map属性赋值
         使用map以及map的子节点entry
+    9.配置Properties
+        通过props和prop节点配置
+              <property name="properties">
+                        <props>
+                            <prop key="username">root</prop>
+                            <prop key="password">123456</prop>
+                        </props>
+                    </property>
+        使用p命名空间简化属性配置
+         <!--通过p命名空间为bean的属性赋值-->
+            <bean id="person6" class="com.study.spring.Person"
+                  p:age="12" p:name="lxn" p:cars-ref="cars"/>
+
+        10.自动装配
+            byName:根据bean在struts.xml中配置的id和bean的setter方法风格的属性进行装配，若匹配，则装配，否则不装配
+            byType:根据bean的类型和当前bean的属性的类型装配，若容器中有一个以上bean的类型相同，则出异常
+
+            自动装配缺点：不能装配个别属性
+            不能同时根据name和type装配，不够灵活
+
+        11.bean的关系
+            bean可以通过parent属性引用一个bean，继承它的配置属性，如果bean添加属性abstrat属性
+            ，那么它将作为一个模版，不能被实例化

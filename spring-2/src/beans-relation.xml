@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+
+    <bean id="address1" class="com.spring.bean.autowire.Address"
+          p:latitude="100" p:longtitude="200" abstract="true"/>
+    <bean id="address2" parent="address1"
+          p:longtitude="250"/>
+    <!--<bean id="car" class="com.spring.bean.autowire.Car" p:brand="goku" p:price="3000"/>-->
+    <!--<bean id="person7" class="com.spring.bean.autowire.Person" p:age="22" p:name="lisi"-->
+          <!--autowire="byName"/>-->
+</beans>
