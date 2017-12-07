@@ -63,3 +63,47 @@
         11.bean的关系
             bean可以通过parent属性引用一个bean，继承它的配置属性，如果bean添加属性abstrat属性
             ，那么它将作为一个模版，不能被实例化
+
+        12.IOC容器中的bean默认都是单例的，即通过同一个id获取的bean是同一个对象
+        可以在配置文件中修改bean的作用范围，有prototype和singleton
+        singleton:创建容器的时候就初始化bean的对象，获取bean的时候直接获取就行
+        protorype:创建容器的时候不初始化bean的对象，每次获取的时候都创建一次
+
+        13.使用外部属性文件
+            使用C3P0数据源需要导入三个jar包
+            mchange-commons-java
+            mysql-connector-java-5.1.43-bin.jar
+            c3p0-0.9.5.2.jar
+
+        14.SpEL 在配置文件中可以通过#{}引用属性
+
+        15.Spring管理bean的生命周期
+            BeanPostProcessor用来处理所有的bean，
+
+        16.通过factory方式配置bean
+                静态工厂方法：
+                实例工厂方法：需要先配置工厂，然后通过factory-bean引用工厂
+        17.通过FactoryBean配置
+                <bean id="car" class="com.bean.factorybean.CarFactoryBean">
+                        <property name="brand" value="baoma"/>
+                    </bean>
+             返回的实例是FactoryBean的getObject方法返回的实例
+
+         18.通过注解配置bean
+            <!--指定SpringIOC容器扫描的包以及它的子包-->
+                <context:component-scan base-package="com.bean.anotation"/>
+                resource-pattern:指定扫描哪些类
+                include-filter 指定包含哪些表达式的组件，该子节点需要配合use-default-filters属性
+
+          如果bean没有被装备到IOC容器中，这时候使用AutoWire注解会报错
+          解决办法是在AutoWire的注解上加上属性required=false,可以避免异常(貌似新版本也不行了)
+
+           @AutoWire 注解自动装配具有兼容类型的单个bean属性
+           默认情况下，所有使用AutoWire的属性都要被设置，当Spring找不到需要装配的bean时，会
+           抛异常，当某一个属性不允许被设置，可以设置AutoWire属性的required为false
+
+           默认情况下，当IOC容器中存在多个类型兼容的Bean时，通过类型的自动装配将无法工作，
+           此时可以在@Qualifier注解中提供bean的名称,名称是bean的类名的第一个字母小写
+           例如userRepositoryImpl
+
+           @AutoWire也可以用在集合上
