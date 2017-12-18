@@ -1,0 +1,42 @@
+动态代理：
+
+
+
+    AOP术语：
+        切面：横切关注点(跨越应用程序多个模块的功能)，被模块化的特殊对象
+        通知：切面必须要完成的工作
+        目标；被通知的对象
+        代理：向目标对象应用通知之后创建的对象
+        连接点：程序执行的某个特殊位置，如类的某个方法被调用前，调用后，方法抛出异常等
+        切点：AOP通过切点定位到连接点，做个类比，连接点相当于数据库中的记录，切点相当于查询条件
+
+    配置spring的命名空间时，schema和xml要对应写在一起
+      xmlns:aop="http://www.springframework.org/schema/aop"
+           xmlns:context="http://www.springframework.org/schema/context"
+           xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/aop
+          http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+          http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context.xsd
+
+Spring AOP
+    基于注解的方式
+        I.首先在配置文件中加入
+             <!--启用对@AspectJ的支持-->
+                <aop:aspectj-autoproxy/>
+        II.把横切关注点的代码抽象到切面的类中
+                切面是IOC中的一个bean，即需要加入@Component注解
+                切面还需要加入@Aspect注解
+        前置通知：Before
+        后置通知:After,在目标方法执行后(无论是否发生异常)，执行的通知
+          try {
+                    //前置通知
+                    result = (int) method.invoke(target,args);
+                    //返回通知，可以访问到方法的返回值，发生异常则无法通知
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    //异常通知
+                }
+                //后置通知,不论是否发生异常
+

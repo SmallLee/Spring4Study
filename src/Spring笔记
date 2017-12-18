@@ -107,3 +107,9 @@
            例如userRepositoryImpl
 
            @AutoWire也可以用在集合上
+
+        泛型依赖注入
+
+
+
+         AOP
